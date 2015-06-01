@@ -103,18 +103,21 @@ automatically-resolved ones)
     var myModule = container.get("myModule", ["parm1", parm2]); 
 
 return an instance of MyModule, specifying the dependencies by name rather than letting the container
-resolve them
+resolve them. Any unspecified dependencies will be resolved normally.
    
+    function MyModule(dep1, dep2, dep3, p1, p2) { ... }
+    MyModule._inject = ["module1", "module2", "module3"];
+
     var myModule = container.get("myModule", { 
         module1: myModule1,
-        module2: myModule2
+        module3: myModule3
     });
  
 .. and also pass additional constructor parameters
    
     var myModule = container.get("myModule", { 
        module1: myModule1,
-       module2: myModule2
+       module3: myModule3
     }, ["parm1", parm2]);
 
 get a factory (for something in transient scope only)
