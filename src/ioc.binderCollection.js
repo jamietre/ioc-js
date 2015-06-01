@@ -6,11 +6,6 @@ function (enums, strings, objects, Binder, helpers) {
     var scopes = enums.scopes;
     var invocations = enums.invocations;
 
-    // generate names for anonymous modules
-    //function getName() {
-    //    return "__anon_" + nameCount++;
-    //}
-
     /* Expects an array of module names to resolve, or an object map of name/definition */
 
     var BinderCollection = function (modules, moduleDef) {

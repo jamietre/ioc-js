@@ -96,8 +96,6 @@ define('utility.ioc', [
         var that = this;
         options = options || {};
 
-        // default to _ioc, but permit passing boolean "false"
-
         this.config = config();
         config.changed.listen(function (key, value) {
             that.config[key] = value;
@@ -143,7 +141,6 @@ define('utility.ioc', [
 
         switch (binder.scope) {
             case scopes.transient:
-                // singletons cannot have constructor parameters
                 instance = binder.provision(iocApi, deps, args, callback);
                 break;
             case scopes.local:
@@ -232,7 +229,7 @@ define('utility.ioc', [
 
             throw new Error(strings.format("There is already a module '{0}' registered with the container.", binder.moduleName));
         }
-        //binder.scopeChanged.listen(validateScope.bind(this));
+
         this.root._binders[binder.moduleName] = binder;
     }
 
