@@ -85,7 +85,7 @@ If you need access to the container itself, e.g. to resolve dependencies dynamic
 
 Adding $$ before a dependency results in a factory being injected instead of an instance.
 
-  function MyModule(container, dep1factory, dep2) { ... }
+    function MyModule(container, dep1factory, dep2) { ... }
     MyModule._inject = ["$ioc", "$$someModule", "someOtherModule"];
 
 
