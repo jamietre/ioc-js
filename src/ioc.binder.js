@@ -15,6 +15,8 @@ function (enums, helpers, config, strings) {
        ioc whenever possible, or undefined.
     */
 
+    // Todo - finish this - caching binders on the _inject array to speed up dep resolution
+
     //function getAndCache(iocApi, param, index) {
     //    var binder = iocApi.getBinder(param);
     //    if (!binder) {
@@ -29,16 +31,11 @@ function (enums, helpers, config, strings) {
         deps = deps || {};
 
         var dependencies = (this.module._inject || []).map(function (param, index) {
-
-            var instance =
-                //param instanceof Binder ?
-                //iocApi.getInstanceFromBinder(param) :
-                    param === '$ioc' ?
+            return param === '$ioc' ?
                     iocApi.ioc : deps[param] ||
-                        //getAndCache.call(this, iocApi, param, index) || 
                     iocApi.get(param) || dependencyError(param);
-            return instance;
         }, this);
+
         return dependencies;
     }
 
