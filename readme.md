@@ -1,5 +1,8 @@
 #ioc - A DI container 
 
+##Note - This is not packaged for public distro and has dependencies that are not included here. This repo is
+posted here for discussion; use at your own risk.
+
 ###Basic usage
 
 #####create a new root-level container
